@@ -38,7 +38,106 @@
 			<main>
 				<h1>Order Event Tickets</h1>
 				<!-- The form starts here... -->
-				
+				<form name="order_form" method="post" action="place_order.php">
+					<!-- Member Information fieldset -->
+					<fieldset>
+						<legend>Member Information</legend>
+						<label for="email">E-Mail:</label>
+						<input type="text" name="email" id="email" autofocus required><br>
+						<label for="first_name">First Name:</label>
+						<input type="text" name="first_name" id="first_name" required><br>
+						<label for="last_name">Last Name:</label>
+						<input type="text" name="last_name" id="last_name" required><br>
+						<label for="address">Address:</label>
+						<input type="text" name="address" id="address"><br>
+						<label for="city">City:</label>
+						<input type="text" name="city" id="city" required><br>
+						<label for="province">Province:</label>
+						<input type="text" name="province" id="province" maxlength="2" placeholder="2-character code" title="Must be 2-letter code" required><br>
+						<label for="postal_code">Postal Code:</label>
+						<input type="text" name="postal_code" id="postal_code" pattern="[A-Za-z0-9]{6}" placeholder="6 characters" title="Must be 6 alphanumeric characters long" required><br>
+						<label for="phone_number">Phone Number:</label>
+						<input type="tel" name="phone_number" id="phone_number" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="999-999-9999" title="Must be in the 999-999-9999 format"><br>
+					</fieldset>
+					
+					<!-- Ordering Information fieldset -->
+					<fieldset>
+						<legend>Ordering Information</legend>
+						<label for="event">Event:</label>
+						<!-- Event select control -->
+						<select name="event" id="event">
+							<option>Cookie Decoration Contest</option>
+							<option>Tree Decoration Contest</option>
+							<option>Gift of Light Ride-Along</option>
+							<option>Breakfast with Santa</option>
+						</select><br>
+						<label for="order_type">Order Type:</label>
+						<!-- Order Type select control -->
+						<select name="order_type" id="order_type">
+							<option>Member Package</option>
+							<option>Donor Package</option>
+							<option>Single Tickets</option>
+						</select><br>
+						<label for="number_of_tickets">Number of Tickets:</label>
+						<input type="number" name="number_of_tickets" id="number_of_tickets" placeholder="Number of single tickets" min="1" step="1" title="Must be a number"><br>
+					</fieldset>
+					
+					<!-- Payment Method fieldset -->
+					<fieldset id="payment_method">
+						<legend>Payment Method</legend>
+						<!-- Radio buttons - bill me & credit card -->
+						<input type="radio" id="bill_me" name="payment_method" value="bill_me">
+						<label for="bill_me">Bill Me</label>
+						<input type="radio" id="credit_card" name="payment_method" value="credit_card">
+						<label for="credit_card">Credit Card</label><br>
+					</fieldset>
+					
+					<!-- Credit Card Information fieldset -->
+					<fieldset>
+						<legend>Credit Card Information</legend>
+						<label for="card_type">Card Type:</label>
+						<!-- Card Type select control -->
+						<select name="card_type" id="card_type">
+							<option>Visa</option>
+							<option>Master Card</option>
+							<option>Discover</option>
+						</select><br>
+						<label for="card_number">Card Number:</label>
+						<input type="text" name="card_number" id="card_number" pattern="^\d{4}-\d{4}-\d{4}-\d{4}$" placeholder="16 digits" title="Must be in the 9999-9999-9999-9999 format" required><br>
+						<label for="expiration_date">Expiration Date:</label>
+						<!-- Expiration Date select controls - month & year -->
+						<select name="month" id="month">
+							<option>January</option>
+							<option>February</option>
+							<option>March</option>
+							<option>April</option>
+							<option>May</option>
+							<option>June</option>
+							<option>July</option>
+							<option>August</option>
+							<option>September</option>
+							<option>October</option>
+							<option>November</option>
+							<option>December</option>
+						</select>
+						<select name="year" id="year">
+							<option>2021</option>
+							<option>2022</option>
+							<option>2023</option>
+							<option>2024</option>
+							<option>2025</option>
+							<option>2026</option>
+							<option>2027</option>
+						</select><br>
+					</fieldset>
+					
+					<!-- Submit Your Order fieldset -->
+					<fieldset>
+						<legend>Submit Your Order</legend>
+						<input type="submit" id="submit" value="Submit">
+						<input type="reset" id="reset" value="Reset Fields"><br>
+					</fieldset>
+				</form>
 			</main>
 			
 			<footer>
